@@ -6,7 +6,7 @@ set -x
 # update Ubuntu's repository
 #
 sudo apt -y update
-sudo apt -y upgrade
+#sudo apt -y upgrade                # This might not be needed
 
 #
 # setup apache2
@@ -19,7 +19,7 @@ sudo systemctl restart apache2
 #
 # setup nmap
 #
-#sudo apt-get -y install nmap        #This is not needed
+#sudo apt-get -y install nmap        # This is not needed
 
 #
 # add files from zips
@@ -30,7 +30,7 @@ sudo unzip /local/repository/apache2.zip /
 #
 # open port 9090 and 9999 for all communications
 #
-#sudo ufw allow 9090                 #I dont think this is needed either
+#sudo ufw allow 9090                 # I dont think this is needed either
 sudo ufw allow 9999
 
 #
