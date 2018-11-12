@@ -24,14 +24,14 @@ sudo systemctl restart apache2
 #
 # add files from zips
 #
-sudo unzip /local/repository/www.zip /
-sudo unzip /local/repository/apache2.zip /
+cd / && sudo unzip /local/repository/www.zip && sudo unzip /local/repository/apache2.zip /
 
 #
 # open port 9090 and 9999 for all communications
 #
 #sudo ufw allow 9090                 # I dont think this is needed either
-sudo ufw allow 9999
+sudo ufw allow 8888
+sudo ufw enable
 
 #
 # setup Anaconda
@@ -44,12 +44,9 @@ sudo bash -c "echo 'PATH=/opt/anaconda3/bin:$PATH' >> /etc/profile"
 # create a user named seed with password dees. 
 sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
 
-# set up Xrdp
-sudo apt install -y xrdp
-sudo systemctl enable xrdp
-
-# make sure there is a gui
-sudo apt install -y ubuntu-desktop
+# set up anaconda
+sudo su seed conda install -c anaconda beautifulsoup4
+sudo su seed conda install -c anaconda requests
 
 # add seed to sudo
 sudo usermod -a -G sudo seed

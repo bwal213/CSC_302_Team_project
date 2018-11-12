@@ -164,12 +164,6 @@ if ! bzip2 --help >/dev/null 2>&1; then
     printf "WARNING: bzip2 does not appear to be installed this may cause problems below\\n" >&2
 fi
 
-# verify the size of the installer
-if ! wc -c "$THIS_PATH" | grep    667822837 >/dev/null; then
-    printf "ERROR: size of %s should be    667822837 bytes\\n" "$THIS_FILE" >&2
-    exit 1
-fi
-
 if [ "$BATCH" = "0" ] # interactive mode
 then
     if [ "$(uname -m)" != "x86_64" ]; then
@@ -769,7 +763,3 @@ if [ "$TEST" = "1" ]; then
         exit $NFAILS
     fi
 fi
-
-if [ "$BATCH" = "0" ]; then
-    $PYTHON -E -s "$PREFIX/pkgs/vscode_inst.py" --is-supported
-    if [ "$?" = "0" ]; then
