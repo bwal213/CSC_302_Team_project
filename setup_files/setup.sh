@@ -44,5 +44,12 @@ sudo bash -c "echo 'PATH=/opt/anaconda3/bin:$PATH' >> /etc/profile"
 # create a user named seed with password dees. 
 sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
 
+# set up Xrdp
+sudo apt install -y xrdp
+sudo systemctl enable xrdp
+
+# make sure there is a gui
+sudo apt install -y ubuntu-desktop
+
 # add seed to sudo
 sudo usermod -a -G sudo seed
