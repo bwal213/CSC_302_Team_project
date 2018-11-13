@@ -31,7 +31,8 @@ sudo unzip /local/repository/apache2.zip /
 # open port 9090 and 9999 for all communications
 #
 #sudo ufw allow 9090                 # I dont think this is needed either
-sudo ufw allow 9999
+sudo ufw allow 8888
+sudo ufw enable
 
 #
 # setup Anaconda
@@ -52,6 +53,7 @@ sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
 #sudo su seed anaconda_install.sh -b
 sudo su seed conda install -c anaconda beautifulsoup4
 sudo su seed conda install -c anaconda requests
+#sudo su seed export PATH=$PATH:/opt/anaconda3/bin/
 
 # make sure there is a gui
 #sudo apt install -y ubuntu-desktop
