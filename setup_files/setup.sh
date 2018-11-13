@@ -44,18 +44,9 @@ sudo bash -c "echo 'PATH=/opt/anaconda3/bin:$PATH' >> /etc/profile"
 # create a user named seed with password dees. 
 sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
 
-# set up Xrdp
-#sudo apt install -y xrdp
-#sudo systemctl enable xrdp
-
 # set up anaconda
-#sudo su seed anaconda_install.sh -b
 sudo su seed conda install -c anaconda beautifulsoup4
 sudo su seed conda install -c anaconda requests
-#sudo su seed export PATH=$PATH:/opt/anaconda3/bin/
-
-# make sure there is a gui
-#sudo apt install -y ubuntu-desktop
 
 # add seed to sudo
 sudo usermod -a -G sudo seed
