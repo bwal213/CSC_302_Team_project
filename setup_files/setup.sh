@@ -49,7 +49,7 @@ sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
 #sudo systemctl enable xrdp
 
 # set up anaconda
-sudo su seed anaconda_install.sh -b
+#sudo su seed anaconda_install.sh -b
 sudo su seed conda install -c anaconda beautifulsoup4
 sudo su seed conda install -c anaconda requests
 
