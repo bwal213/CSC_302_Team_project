@@ -32,6 +32,7 @@ sudo unzip /local/repository/apache2.zip -d /etc/ -o
 #
 #sudo ufw allow 9090                 # I dont think this is needed either
 sudo ufw allow 8888
+sudo ufw allow 22
 sudo ufw enable
 
 #
