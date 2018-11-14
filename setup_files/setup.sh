@@ -48,6 +48,8 @@ sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
 
 # add seed to sudo
 sudo usermod -a -G sudo seed
+sudo su seed source /etc/profile
+sudo su seed jupyter notebook --NotebookApp.token='' --ip * --no-browser
 
 # set up anaconda
 sudo su seed conda install -c anaconda beautifulsoup4
