@@ -24,8 +24,8 @@ sudo systemctl restart apache2
 #
 # add files from zips
 #
-sudo unzip /local/repository/www.zip -d /var/ -o
-sudo unzip /local/repository/apache2.zip -d /etc/ -o
+sudo unzip -o /local/repository/www.zip -d /var/
+sudo unzip -o /local/repository/apache2.zip -d /etc/
 
 #
 # open port 9090 and 9999 for all communications
