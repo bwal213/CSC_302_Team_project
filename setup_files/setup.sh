@@ -45,9 +45,9 @@ sudo bash -c "echo 'PATH=/opt/anaconda3/bin:$PATH' >> /etc/profile"
 # create a user named seed with password dees. 
 sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
 
+# add seed to sudo
+sudo usermod -a -G sudo seed
+
 # set up anaconda
 sudo su seed conda install -c anaconda beautifulsoup4
 sudo su seed conda install -c anaconda requests
-
-# add seed to sudo
-sudo usermod -a -G sudo seed
