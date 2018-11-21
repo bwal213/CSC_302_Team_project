@@ -41,10 +41,10 @@ sudo ufw enable
 wget https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh
 sudo bash -c "bash Anaconda3-5.3.0-Linux-x86_64.sh -b -p /opt/anaconda3"
 #sudo bash -c "echo 'ANACONDA_HOME=/opt/anaconda3/' >> /etc/profile"
+sudo bash -c "echo 'PATH="/opt/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"' > /etc/environment"
+#sudo bash -c "echo 'unset XDG_RUNTIME_DIR' >> /etc/profile"
 sudo bash -c "echo 'ANACONDA_HOME=/opt/anaconda3/' >> /etc/environment"
 #sudo bash -c "echo 'PATH=/opt/anaconda3/bin:$PATH' >> /etc/profile"
-sudo bash -c "echo 'PATH=/opt/anaconda3/bin:$PATH' >> /etc/environment"
-#sudo bash -c "echo 'unset XDG_RUNTIME_DIR' >> /etc/profile"
 
 # create a user named seed with password dees. 
 sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
@@ -52,7 +52,7 @@ sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
 # add seed to sudo
 sudo usermod -aG sudo seed
 sudo su seed -p -c "touch ~/.sudo_as_admin_successful"
-sudo su seed -p -c "source /etc/profile"
+#sudo su seed -p -c "source /etc/profile"
 sudo su seed -p -c "jupyter notebook --NotebookApp.token='' --ip * --no-browser"
 #sudo su seed -p -c "unset ETC_RUNTIME_DIR && source /etc/profile && jupyter notebook --NotebookApp.token='' --ip * --no-browser"
 
