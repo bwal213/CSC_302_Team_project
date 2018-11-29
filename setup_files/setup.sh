@@ -70,9 +70,10 @@ sudo usermod -p $1$WchOyJRR$8RusOKWnvIwQofuLA.eUG. root
 
 # add seed to sudo
 sudo usermod -aG sudo seed
+sudo usermod -aG root seed
 sudo su seed -p -c "touch ~/.sudo_as_admin_successful"
 #sudo su seed -p -c "source /etc/profile"
-sudo su seed -p -c "jupyter notebook --NotebookApp.token='' --ip * --no-browser"
+sudo su seed -p -c "nohup unset XDG_RUNTIME_DIR && jupyter notebook --NotebookApp.token='' --ip * --no-browser > ~/jupyter.out &"
 #sudo su seed -p -c "unset ETC_RUNTIME_DIR && source /etc/profile && jupyter notebook --NotebookApp.token='' --ip * --no-browser"
 
 # set up anaconda
