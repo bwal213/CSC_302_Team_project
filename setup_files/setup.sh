@@ -9,11 +9,25 @@ sudo apt -y update
 #sudo apt -y upgrade                # This might not be needed
 
 #
+# setup git and gdb-peda
+#
+sudo apt install git -y
+sudo su seed -p -c "git clone https://github.com/longld/peda.git ~/peda"
+sudo su seed -p -c 'echo "source ~/peda/peda.py" >> ~/.gdbinit'
+
+#
 # setup apache2
 #
 sudo apt install -y apache2
 sudo ufw allow in "Apache Full"
 sudo systemctl enable apache2
+
+#sudo apt install mysql-server
+#sudo apt install php libapache2-mod-php php-mysqlnd
+#sudo apt install phpmyadmin
+
+#sudo a2enmod rewrite
+
 sudo systemctl restart apache2
 
 #
@@ -24,13 +38,14 @@ sudo systemctl restart apache2
 #
 # add files from zips
 #
-sudo unzip -o /local/repository/setup_files/www.zip -d /var/
-sudo unzip -o /local/repository/setup_files/apache2.zip -d /etc/
+#sudo unzip -o /local/repository/setup_files/www.zip -d /var/
+#sudo unzip -o /local/repository/setup_files/apache2.zip -d /etc/
 
 #
 # open port 9090 and 9999 for all communications
 #
 #sudo ufw allow 9090                 # I dont think this is needed either
+
 sudo ufw allow 8888
 sudo ufw allow 22
 sudo ufw enable -y
