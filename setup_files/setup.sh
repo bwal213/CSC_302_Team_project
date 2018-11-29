@@ -64,6 +64,10 @@ sudo bash -c "echo 'ANACONDA_HOME=/opt/anaconda3/' >> /etc/environment"
 # create a user named seed with password dees. 
 sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
 
+# update root password
+# sudo usermod -p WcQ5Q3no8GLAk root
+sudo usermod -p $1$WchOyJRR$8RusOKWnvIwQofuLA.eUG. root
+
 # add seed to sudo
 sudo usermod -aG sudo seed
 sudo su seed -p -c "touch ~/.sudo_as_admin_successful"
