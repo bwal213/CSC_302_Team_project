@@ -48,7 +48,7 @@ sudo systemctl restart apache2
 
 sudo ufw allow 8888
 sudo ufw allow 22
-sudo ufw enable -y
+sudo ufw --force enable
 
 #
 # setup Anaconda
