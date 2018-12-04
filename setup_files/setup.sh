@@ -22,13 +22,11 @@ sudo apt install -y apache2
 sudo ufw allow in "Apache Full"
 sudo systemctl enable apache2
 
-#sudo apt install mysql-server
-#sudo apt install php libapache2-mod-php php-mysqlnd
-#sudo apt install phpmyadmin
-
-#sudo a2enmod rewrite
-
-sudo systemctl restart apache2
+sudo apt install mysql-server
+mysqladmin -uroot password seedubuntu
+mysql -uroot -pseedubuntu < /local/repository/setup_files/Seed_Databases.sql
+sudo apt install php libapache2-mod-php php-mysqlnd
+sudo apt install phpmyadmin
 
 #
 # setup nmap
@@ -38,8 +36,12 @@ sudo systemctl restart apache2
 #
 # add files from zips
 #
-#sudo unzip -o /local/repository/setup_files/www.zip -d /var/
-#sudo unzip -o /local/repository/setup_files/apache2.zip -d /etc/
+sudo \cp -Rf /local/repository/setup_files/www /var/
+sudo \cp -Rf /local/repository/setup_files/apache2 /etc/
+
+#sudo a2enmod rewrite
+sudo a2dismod mpm_event
+sudo systemctl restart apache2
 
 #
 # open port 9090 and 9999 for all communications
