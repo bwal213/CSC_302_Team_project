@@ -38,6 +38,9 @@ sudo env DEBIAN_FRONTEND=noninteractive apt -yq install phpmyadmin
 #
 sudo \cp -Rf /local/repository/setup_files/www /var/
 sudo \cp -Rf /local/repository/setup_files/apache2 /etc/
+sudo \cp -Rf /local/repository/setup_files/php /etc/
+sudo \cp -Rf /local/repository/setup_files/phpmyadmin /etc/
+sudo \cp -Rf /local/repository/setup_files/mysql /etc/
 
 #sudo a2enmod rewrite
 sudo a2dismod mpm_event
