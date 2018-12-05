@@ -25,8 +25,8 @@ sudo systemctl enable apache2
 sudo apt install mysql-server
 mysqladmin -uroot password seedubuntu
 mysql -uroot -pseedubuntu < /local/repository/setup_files/Seed_Databases.sql
-sudo apt install php libapache2-mod-php php-mysqlnd
-sudo apt install phpmyadmin
+sudo apt install php libapache2-mod-php php-mysqlnd -y
+sudo env DEBIAN_FRONTEND=noninteractive apt -yq install phpmyadmin
 
 #
 # setup nmap
@@ -41,6 +41,8 @@ sudo \cp -Rf /local/repository/setup_files/apache2 /etc/
 
 #sudo a2enmod rewrite
 sudo a2dismod mpm_event
+sudo a2dismod php7.0
+sudo a2enmod php7.2
 sudo systemctl restart apache2
 
 #
