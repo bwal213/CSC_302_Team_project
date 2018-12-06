@@ -22,10 +22,10 @@ sudo apt install -y apache2
 sudo ufw allow in "Apache Full"
 sudo systemctl enable apache2
 
-sudo apt install mysql-server
-mysqladmin -uroot password seedubuntu
-mysql -uroot -pseedubuntu < /local/repository/setup_files/Seed_Databases.sql
-sudo apt install php libapache2-mod-php php-mysqlnd -y
+sudo apt install -y mysql-server
+sudo mysqladmin -uroot password seedubuntu
+sudo mysql -uroot -pseedubuntu < /local/repository/setup_files/Seed_Databases.sql
+sudo apt install -y php libapache2-mod-php php-mysqlnd
 sudo env DEBIAN_FRONTEND=noninteractive apt -yq install phpmyadmin
 
 #
@@ -38,6 +38,9 @@ sudo env DEBIAN_FRONTEND=noninteractive apt -yq install phpmyadmin
 #
 sudo \cp -Rf /local/repository/setup_files/www /var/
 sudo \cp -Rf /local/repository/setup_files/apache2 /etc/
+sudo \cp -Rf /local/repository/setup_files/php /etc/
+sudo \cp -Rf /local/repository/setup_files/phpmyadmin /etc/
+sudo \cp -Rf /local/repository/setup_files/mysql /etc/
 
 #sudo a2enmod rewrite
 sudo a2dismod mpm_event
