@@ -23,8 +23,13 @@ sudo ufw allow in "Apache Full"
 sudo systemctl enable apache2
 
 sudo apt install -y mysql-server
-sudo mysqladmin -uroot password seedubuntu
+sudo mysql -e"FLUSH PRIVILEGES;"
+sudo mysql -e"set password for 'root'@'localhost' ='seedubuntu';"
 sudo mysql -uroot -pseedubuntu < /local/repository/setup_files/Seed_Databases.sql
+sudo mysql -e"FLUSH PRIVILEGES;"
+sudo mysql -e"set password for 'root'@'localhost' ='seedubuntu';"
+mysql -uroot -pseedubuntu "set password for 'phpmyadmin'@'localhost' ='seedubuntu';"
+#sudo mysqladmin -uroot password seedubuntu
 sudo apt install -y php libapache2-mod-php php-mysqlnd
 sudo env DEBIAN_FRONTEND=noninteractive apt -yq install phpmyadmin
 
