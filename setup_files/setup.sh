@@ -38,7 +38,7 @@ sudo apt install composer
 #
 # get new elgg
 #
-sudo su seed -c "wget https://elgg.org/about/getelgg?forward=elgg-2.3.9.zip -O ~/elgg-2.3.9.zip"
+sudo su seed -c "wget https://elgg.org/about/getelgg?forward=elgg-2.3.9.zip -O /home/seed/elgg-2.3.9.zip"
 
 
 #
