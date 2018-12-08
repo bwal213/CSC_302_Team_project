@@ -32,6 +32,14 @@ mysql -uroot -pseedubuntu "set password for 'phpmyadmin'@'localhost' ='seedubunt
 #sudo mysqladmin -uroot password seedubuntu
 sudo apt install -y php libapache2-mod-php php-mysqlnd
 sudo env DEBIAN_FRONTEND=noninteractive apt -yq install phpmyadmin
+sudo apt install composer
+
+
+#
+# get new elgg
+#
+sudo su seed -c "wget https://elgg.org/about/getelgg?forward=elgg-2.3.9.zip -O /home/seed/elgg-2.3.9.zip"
+
 
 #
 # setup nmap
