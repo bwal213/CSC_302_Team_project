@@ -86,7 +86,7 @@ sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
 
 # update root password
 # sudo usermod -p WcQ5Q3no8GLAk root
-sudo usermod -p $1$WchOyJRR$8RusOKWnvIwQofuLA.eUG. root
+sudo usermod -p WcQ5Q3no8GLAk root
 
 # add seed to sudo
 sudo usermod -aG sudo seed
