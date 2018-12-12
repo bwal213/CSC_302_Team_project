@@ -12,9 +12,9 @@ sudo apt -y update
 # setup git and gdb-peda
 #
 sudo apt install git -y
-sudo su seed -c "git clone https://github.com/longld/peda.git ~/peda"
+sudo su seed -c 'git clone https://github.com/longld/peda.git ~/peda'
 sudo su seed -c 'echo "source ~/peda/peda.py" >> ~/.gdbinit'
-sudo su seed -c 'git clone https://github.com/linhbngo/Computer-Security.git ~/'
+sudo su seed -c 'git clone https://github.com/linhbngo/Computer-Security.git ~/Computer-Security/'
 
 #
 # setup apache2
