@@ -96,7 +96,7 @@ sudo su seed -c 'git clone https://github.com/linhbngo/Computer-Security.git ~/C
 #
 sudo su seed -c "wget https://elgg.org/about/getelgg?forward=elgg-2.3.9.zip -O /home/seed/elgg-2.3.9.zip"
 
-
+sudo su seed -c "ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' -m1 >~/ip.txt"
 
 # set up anaconda
 sudo su seed -c "conda install -c anaconda beautifulsoup4"
