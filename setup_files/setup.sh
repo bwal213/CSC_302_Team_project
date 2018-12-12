@@ -32,7 +32,7 @@ mysql -uroot -pseedubuntu "set password for 'phpmyadmin'@'localhost' ='seedubunt
 #sudo mysqladmin -uroot password seedubuntu
 sudo apt install -y php libapache2-mod-php php-mysqlnd
 sudo env DEBIAN_FRONTEND=noninteractive apt -yq install phpmyadmin
-sudo apt install composer
+sudo apt install -y composer
 
 
 #
