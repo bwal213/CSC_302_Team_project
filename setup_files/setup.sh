@@ -9,14 +9,6 @@ sudo apt -y update
 #sudo apt -y upgrade                # This might not be needed
 
 #
-# setup git and gdb-peda
-#
-sudo apt install git -y
-sudo su seed -c 'git clone https://github.com/longld/peda.git ~/peda'
-sudo su seed -c 'echo "source ~/peda/peda.py" >> ~/.gdbinit'
-sudo su seed -c 'git clone https://github.com/linhbngo/Computer-Security.git ~/Computer-Security/'
-
-#
 # setup apache2
 #
 sudo apt install -y apache2
@@ -34,13 +26,6 @@ mysql -uroot -pseedubuntu "set password for 'phpmyadmin'@'localhost' ='seedubunt
 sudo apt install -y php libapache2-mod-php php-mysqlnd
 sudo env DEBIAN_FRONTEND=noninteractive apt -yq install phpmyadmin
 sudo apt install -y composer
-
-
-#
-# get new elgg
-#
-sudo su seed -c "wget https://elgg.org/about/getelgg?forward=elgg-2.3.9.zip -O /home/seed/elgg-2.3.9.zip"
-
 
 #
 # setup nmap
@@ -96,6 +81,21 @@ sudo su seed -c "touch ~/.sudo_as_admin_successful"
 #sudo su seed -p -c "source /etc/profile"
 sudo su seed -c "cd ~/ && unset XDG_RUNTIME_DIR && nohup jupyter notebook --NotebookApp.token='' --ip * --no-browser > ~/nohup_jupyter.out &"
 #sudo su seed -p -c "unset ETC_RUNTIME_DIR && source /etc/profile && jupyter notebook --NotebookApp.token='' --ip * --no-browser"
+
+#
+# setup git and gdb-peda
+#
+sudo apt install git -y
+sudo su seed -c 'git clone https://github.com/longld/peda.git ~/peda'
+sudo su seed -c 'echo "source ~/peda/peda.py" >> ~/.gdbinit'
+sudo su seed -c 'git clone https://github.com/linhbngo/Computer-Security.git ~/Computer-Security/'
+
+#
+# get new elgg
+#
+sudo su seed -c "wget https://elgg.org/about/getelgg?forward=elgg-2.3.9.zip -O /home/seed/elgg-2.3.9.zip"
+
+
 
 # set up anaconda
 sudo su seed -c "conda install -c anaconda beautifulsoup4"
