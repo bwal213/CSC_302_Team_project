@@ -96,7 +96,7 @@ sudo su seed -c 'git clone https://github.com/linhbngo/Computer-Security.git ~/C
 #
 sudo su seed -c "wget https://elgg.org/about/getelgg?forward=elgg-2.3.9.zip -O /home/seed/elgg-2.3.9.zip"
 
-sudo su seed -c "testingip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' -m1); echo -n 'http://' > ~/ip.txt; echo -n $testingip> ~/ip.txt; echo -n '/CSRF/Elgg' >> ~/ip.txt"
+sudo su seed -c "testingip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' -m1); echo -n 'http://' > ~/ip.txt; echo -n $testingip>> ~/ip.txt; echo -n '/CSRF/Elgg/' >> ~/ip.txt"
 #mysql -uroot -pseedubuntu -e 'UPDATE 'elgg_csrf'.'elgg_sites_entity' SET 'url' = "http://test.myelgg.org/" WHERE guid = '1';'
 #sudo su seed -c "testingip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' -m1); echo -n '"'; echo -n $testingip> ~/ip.txt; echo -n '/CSRF/Elgg' >> ~/ip.txt"
 #sudo su seed -c "mysql -uroot -pseedubuntu -e 'LOAD DATA INFILE '~/ip.txt' INTO TABLE 'elgg_csrf'.'elff_sites_entity';"
