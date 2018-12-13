@@ -107,6 +107,7 @@ sudo su seed -c "testingip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9
 #mysql -uroot -pseedubuntu -e 'UPDATE 'elgg_csrf'.'elgg_csrfsites_entity' SET url=LOAD_FILE("/var/lib/mysql-files/ip.txt") WHERE guid=1;'
 
 #sudo grep -r "csrflabelgg" /var/
+#cat ip.txt | head -c-1
 #sed -i -- 's/http:\\\/\\\/www.csrflabelgg.com/130.127.135.3\\\/CSRF\\\/Elgg/g' *.js
 #sed -i -- 's/http:\/\/www.csrflabelgg.com/130.127.135.3\/CSRF\/Elgg/g' *.js
 #sed -i -- 's/http:\/\/www.csrflabelgg.com/130.127.135.3\/CSRF\/Elgg/g' *.css
