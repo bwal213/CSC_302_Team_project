@@ -7,6 +7,11 @@ set -x
 sudo apt -y update
 
 #
+# Create working directory for setup
+#
+sudo mkdir /var/setup
+
+#
 # Install & setup apache2
 #
 sudo apt install -y apache2
@@ -88,14 +93,19 @@ sudo ufw --force enable
 # Setup Anaconda
 # Legacy path commands are left incase needed in the future.
 #
-wget https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh
-sudo bash -c "bash Anaconda3-5.3.0-Linux-x86_64.sh -b -p /opt/anaconda3"
+wget -O /var/setup/Anaconda3-5.3.0-Linux-x86_64.sh https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh 
+sudo su seed -c 'bash -c "bash /var/setup/Anaconda3-5.3.0-Linux-x86_64.sh -b -p /opt/anaconda3"'
 #sudo bash -c "echo 'ANACONDA_HOME=/opt/anaconda3/' >> /etc/profile"
 sudo bash -c "echo 'PATH="/opt/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"' > /etc/environment"
 #sudo bash -c "echo 'unset XDG_RUNTIME_DIR' >> /etc/profile"
 sudo bash -c "echo 'ANACONDA_HOME=/opt/anaconda3/' >> /etc/environment"
 #sudo bash -c "echo 'PATH=/opt/anaconda3/bin:$PATH' >> /etc/profile"
 #sudo su seed -p -c "source /etc/profile"
+
+#
+# Change permissions for this so all users can run conda commands
+#
+#sudo chmod -R 755 /opt/anaconda3
 
 #
 # Create a user named seed with password dees. 
@@ -142,7 +152,6 @@ sudo su seed -c 'git clone https://github.com/linhbngo/Computer-Security.git ~/C
 #
 # Get new elgg then unzip
 #
-sudo mkdir /var/setup
 wget https://elgg.org/about/getelgg?forward=elgg-2.3.9.zip -O /var/setup/elgg-2.3.9.zip
 cd /var/setup && unzip elgg-2.3.9.zip
 #sudo su seed -c "wget https://elgg.org/about/getelgg?forward=elgg-2.3.9.zip -O /var/setup/elgg-2.3.9.zip"
