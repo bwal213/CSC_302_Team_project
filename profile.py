@@ -1,11 +1,26 @@
 
-"""An example of constructing a profile with a single Xen VM from CloudLab.
+"""An experimental profile to allow the usage of features and software from SEED Labs on CloudLab, specifically the web attacks for CSRF.
 
 Instructions:
-Wait for the profile instance to start, and then log in to the VM via the
-ssh port specified below.  (Note that in this case, you will need to access
-the VM through a high port on the physical host, since we have not requested
-a public IP address for the VM itself.)
+Wait for the profile instance to start, then obtain the address from the ssh command in "List View" below.
+
+This can be done by highlighting from outside the dark box at the end of the command towards the front, up till the "@" symbol before your username/ID.
+
+Paste this address into your URL bar and wait for the setup to finish. Once Apache is configured, you will see the lab directories here.
+
+To access the jupyter server add ":8888" to the end of that same URL in a second tab or window. This access port 8888 where jupyter is running.
+
+The jupyter server may take a while to load, as it is one of the last things that is done. 
+
+Following it being available, a few more things will still be happening in the background, but you can click the "New" tab on the top right of the page and select terminal for an easy access to the command line.
+
+Once fully set up you should be able to go back to the main web page (the main URL), and navigate to the directory/web page for the lab you wish to work on. Some are a few layers down.
+
+DO NOT INSTATIATE AS YOU ARE WALKING INTO CLASS, BE SURE TO PLAN AHEAD!
+This whole process may Take upwards of a half hour (30 min), or longer if things are running slow.
+
+Enjoy learning as we have, but in a much more resource freindly environment. 
+Have a great semester!
 """
 
 import geni.portal as portal
@@ -21,13 +36,4 @@ node.routable_control_ip = "true"
 node.addService(rspec.Execute(shell="/bin/sh",
                               command="sudo bash /local/repository/setup_files/setup.sh"))
 
-#node.addService(rspec.Execute(shell="/bin/sh",
-#                              command="sudo apt update"))
-#node.addService(rspec.Execute(shell="/bin/sh",
-#                              command="sudo apt install -y apache2"))
-#node.addService(rspec.Execute(shell="/bin/sh",
-#                              command='sudo ufw allow in "Apache Full"'))
-#node.addService(rspec.Execute(shell="/bin/sh",
-#                              #command='sudo systemctl status apache2'))
-# Print the RSpec to the enclosing page.
 portal.context.printRequestRSpec()
