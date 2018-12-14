@@ -162,6 +162,11 @@ sudo \cp -Rf /var/setup/elgg-2.3.9/* /var/www/XSS/Elgg/
 sudo su root -c "echo IPADDR=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' -m1) >> /etc/environment"
 
 #
+# Source the new system variable to make sure it is useable
+#
+source /etc/environment
+
+#
 # Create text files that contain the URL of the web pages.
 # This will be used to input them into the database.
 #
