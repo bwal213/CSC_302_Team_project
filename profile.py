@@ -17,7 +17,7 @@ Following it being available, a few more things will still be happening in the b
 Once fully set up you should be able to go back to the main web page (the main URL), and navigate to the directory/web page for the lab you wish to work on. Some are a few layers down.
 
 DO NOT INSTATIATE AS YOU ARE WALKING INTO CLASS, BE SURE TO PLAN AHEAD!
-This whole process may Take upwards of a half hour (30 min), or longer if things are running slow.
+This whole process may take upwards of a half hour (30 min), or even longer if things are running slow.
 
 Enjoy learning as we have, but in a much more resource freindly environment. 
 Have a great semester!
