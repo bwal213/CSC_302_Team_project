@@ -12,6 +12,27 @@ sudo apt -y update
 sudo mkdir /var/setup
 
 #
+# Change permissions for this so all users can run conda commands
+#
+#sudo chmod -R 755 /opt/anaconda3
+
+#
+# Create a user named seed with password dees. 
+#
+sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
+
+#
+# Update root password
+# 
+sudo usermod -p WcQ5Q3no8GLAk root
+
+#
+# Add seed to sudo and root for jupyter
+#
+sudo usermod -aG sudo seed
+sudo usermod -aG root seed
+
+#
 # Install & setup apache2
 #
 sudo apt install -y apache2
@@ -91,6 +112,9 @@ sudo ufw --force enable
 
 #
 # Setup Anaconda
+# Get the folder ready so seed can write to it.
+sudo chmod -R a+w /opt
+# Download and run the anaconda install as seed.
 # Legacy path commands are left incase needed in the future.
 #
 wget -O /var/setup/Anaconda3-5.3.0-Linux-x86_64.sh https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh 
@@ -101,27 +125,6 @@ sudo bash -c "echo 'PATH="/opt/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr
 sudo bash -c "echo 'ANACONDA_HOME=/opt/anaconda3/' >> /etc/environment"
 #sudo bash -c "echo 'PATH=/opt/anaconda3/bin:$PATH' >> /etc/profile"
 #sudo su seed -p -c "source /etc/profile"
-
-#
-# Change permissions for this so all users can run conda commands
-#
-#sudo chmod -R 755 /opt/anaconda3
-
-#
-# Create a user named seed with password dees. 
-#
-sudo useradd -m -p WchOyJRR.1Qrc -s /bin/bash seed
-
-#
-# Update root password
-# 
-sudo usermod -p WcQ5Q3no8GLAk root
-
-#
-# Add seed to sudo and root for jupyter
-#
-sudo usermod -aG sudo seed
-sudo usermod -aG root seed
 
 #
 # Touch the file so that sudo message goes away.
