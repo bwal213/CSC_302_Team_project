@@ -2,7 +2,8 @@
 """An experimental profile to allow the usage of features and software from SEED Labs on CloudLab, specifically the web attacks for CSRF.
 
 Instructions:
-Wait for the profile instance to start, then obtain the address from the ssh command in "List View" below.
+Wait for the profile instance to start, then obtain the address/URL from the ssh command in "List View" below.
+(Only copy from the command on the line with the ID of "node".)
 
 This can be done by highlighting from outside the dark box at the end of the command towards the front, up till the "@" symbol before your username/ID.
 
@@ -17,7 +18,7 @@ Following it being available, a few more things will still be happening in the b
 Once fully set up you should be able to go back to the main web page (the main URL), and navigate to the directory/web page for the lab you wish to work on. Some are a few layers down.
 
 DO NOT INSTATIATE AS YOU ARE WALKING INTO CLASS, BE SURE TO PLAN AHEAD!
-This whole process may take upwards of a half hour (30 min), or even longer if things are running slow.
+This whole process may take upwards of a half hour (15-30 minutes during testing) or even longer if things are running slow or instantiation fails.
 
 Enjoy learning as we have, but in a much more resource freindly environment. 
 Have a great semester!
