@@ -129,8 +129,10 @@ sudo su seed -c "cd ~/ && unset XDG_RUNTIME_DIR && nohup jupyter notebook --Note
 # Install git and gdb-peda
 #
 sudo apt install git -y
-sudo su seed -c 'git clone https://github.com/longld/peda.git ~/peda'
-sudo su seed -c 'echo "source ~/peda/peda.py" >> ~/.gdbinit'
+sudo mkdir /var/peda
+git clone https://github.com/longld/peda.git /var/peda
+#sudo su seed -c 'git clone https://github.com/longld/peda.git ~/peda'
+sudo su seed -c 'echo "source /var/peda/peda.py" >> ~/.gdbinit'
 
 #
 # Add the class repository so it can be seen from jupyter
@@ -140,16 +142,19 @@ sudo su seed -c 'git clone https://github.com/linhbngo/Computer-Security.git ~/C
 #
 # Get new elgg then unzip
 #
-sudo su seed -c "wget https://elgg.org/about/getelgg?forward=elgg-2.3.9.zip -O /home/seed/setup/elgg-2.3.9.zip"
-sudo su seed -c "cd ~/setup && unzip elgg-2.3.9.zip"
+sudo mkdir /var/setup
+wget https://elgg.org/about/getelgg?forward=elgg-2.3.9.zip -O /var/setup/elgg-2.3.9.zip
+cd /var/setup && unzip elgg-2.3.9.zip
+#sudo su seed -c "wget https://elgg.org/about/getelgg?forward=elgg-2.3.9.zip -O /var/setup/elgg-2.3.9.zip"
+#sudo su seed -c "cd ~/setup && unzip elgg-2.3.9.zip"
 
 #
 # Overwrite old elgg installs from seed lab
 # This needs to be done, as there are errors that are fixed in the latest version.
 # The old version seemed to be incompatible with php7.2.
 #
-sudo \cp -Rf /home/seed/elgg-2.3.9/* /var/www/CSRF/Elgg/
-sudo \cp -Rf /home/seed/elgg-2.3.9/* /var/www/XSS/Elgg/
+sudo \cp -Rf /var/setup/elgg-2.3.9/* /var/www/CSRF/Elgg/
+sudo \cp -Rf /var/setup/elgg-2.3.9/* /var/www/XSS/Elgg/
 
 #
 # Get current public IP and make it into a system-wide system variable
@@ -160,8 +165,10 @@ sudo su root -c "echo IPADDR=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0
 # Create text files that contain the URL of the web pages.
 # This will be used to input them into the database.
 #
-sudo su seed -c "echo -n 'http://' > ~/setup/CSRFurl.txt; echo -n $IPADDR >> ~/setup/CSRFurl.txt; echo -n '/CSRF/Elgg/' >> ~/setup/CSRFurl.txt"
-sudo su seed -c "echo -n 'http://' > ~/setup/XSSurl.txt; echo -n $IPADDR >> ~/setup/XSSurl.txt; echo -n '/XSS/Elgg/' >> ~/setup/XSSurl.txt"
+sudo echo -n 'http://' > /var/setup/CSRFurl.txt; echo -n $IPADDR >> /var/setup/CSRFurl.txt; echo -n '/CSRF/Elgg/' >> /var/setup/CSRFurl.txt
+sudo echo -n 'http://' > /var/setup/XSSurl.txt; echo -n $IPADDR >> /var/setup/XSSurl.txt; echo -n '/XSS/Elgg/' >> /var/setup/XSSurl.txt
+#sudo su seed -c "echo -n 'http://' > /var/setup/CSRFurl.txt; echo -n $IPADDR >> /var/setup/CSRFurl.txt; echo -n '/CSRF/Elgg/' >> /var/setup/CSRFurl.txt"
+#sudo su seed -c "echo -n 'http://' > /var/setup/XSSurl.txt; echo -n $IPADDR >> /var/setup/XSSurl.txt; echo -n '/XSS/Elgg/' >> /var/setup/XSSurl.txt"
 
 #
 # These are legacy commands that helped to establish how to use thier seperate parts 
@@ -172,8 +179,8 @@ sudo su seed -c "echo -n 'http://' > ~/setup/XSSurl.txt; echo -n $IPADDR >> ~/se
 #
 # Copy the text files to where mysql can see them
 #
-sudo \cp /home/seed/setup/CSRFurl.txt /var/lib/mysql-files/
-sudo \cp /home/seed/setup/XSSurl.txt /var/lib/mysql-files/
+sudo \cp -f /var/setup/CSRFurl.txt /var/lib/mysql-files/
+sudo \cp -f /var/setup/XSSurl.txt /var/lib/mysql-files/
 
 #
 # Load the data in the files into the database to replace the old site URLs
