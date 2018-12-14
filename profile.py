@@ -20,6 +20,11 @@ Once fully set up you should be able to go back to the main web page (the main U
 DO NOT INSTATIATE AS YOU ARE WALKING INTO CLASS, BE SURE TO PLAN AHEAD!
 This whole process may take upwards of a half hour (15-30 minutes during testing) or even longer if things are running slow or instantiation fails.
 
+NOTE FOR DURING LABS:
+Any occurance of "http://www.csrflabelgg.com/" must be replaced with "http://[Your IP]/CSRF/Elgg/".
+Any occurance of "http://www.xsslabelgg.com/" must be replaced with "http://[Your IP]/XSS/Elgg/".
+You can get your IP in multiple way, but there should be a system variable you can call $IPADDR.
+
 Enjoy learning as we have, but in a much more resource freindly environment. 
 Have a great semester!
 """
