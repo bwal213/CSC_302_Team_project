@@ -1,27 +1,6 @@
 # CSC_302_Team_project
 A repository for instantiation on cloudlab to complete the team project.
 
+This became one of the most challenging things I have done. It made use of much of my innate understanding of how computers work, as well as tested how well I could learn things I am not so familiar with quickly. I have had to reverse engineer how things worked on one system, and how to then implement them on another. I have also had to learn to reverse engineer products and chase rabbitholes of error logs to find out what needs to be fixed. Overall, I am happy I was able to figure it out. Thanks to Dr. Ngo for this challenging assignment.
 
-TODO:
-
-Fix config for apache2 in /etc/apache2/mods-enabled
-      -set the php version in php7.0.load, to use libphp7.2.so
-      -use a2dismod mpm_event to fix mpm conflict
-      -restart apache with sudo systemctl restart apache2
-      
-Make sure these get installed
-      sudo apt-get install mysql-server
-      sudo apt-get install php libapache2-mod-php php-mysqlnd
-      sudo apt-get install phpmyadmin
-      -WARNING phpmyadmin requires answering questions during setup, look into flags.
-      sudo a2enmod rewrite
-      -rewrite should already be enabled
-      
-Setup jupyterhub
-
-Check for the database needed for elgg
-
-Check about pre editing files before copy so that they are good to go upon copy
-
-Make sure /etc/apache2/sites-enabled/000-default.conf & /etc/apache2/sites-available/000-default.conf 
-  both have root directory set to /var/www
+Elgg has terrible and very unclear documentation and guides. Maybe they know what is going on, but it gave me one hell of a time, trying to figure out what they meant. This was especially difficult when they list cases that aren't clear if I should follow thier instructions or not. There was much reading between the lines, and guessing at other error questions on the forums, untill I finally realized on my own, due to the behavior of it, where the error probably was coming from. Utilmatly I am left frustrated due to my experience with their less than explicit guides and instructions.
