@@ -113,10 +113,12 @@ mysql -uroot -pseedubuntu -e 'UPDATE 'elgg_csrf'.'elgg_csrfsites_entity' SET url
 
 #sudo grep -r "csrflabelgg" /var/
 #cat ip.txt | head -c-1
-#sed -i -- 's/http:\\\/\\\/www.csrflabelgg.com/$ipaddr\\\/CSRF\\\/Elgg/g' /var/elgg/csrf/views_simplecache/1501099611/default/*.js
-#sed -i -- 's/http:\/\/www.csrflabelgg.com/$ipaddr\/CSRF\/Elgg/g' /var/elgg/csrf/views_simplecache/1501099611/default/elgg/*.js
-#sed -i -- 's/http:\/\/www.csrflabelgg.com/$ipaddr\/CSRF\/Elgg/g' /var/elgg/csrf/views_simplecache/1501099611/default/*.css
+sudo sed -i -- 's/http:\\\/\\\/www.csrflabelgg.com/$ipaddr\\\/CSRF\\\/Elgg/g' /var/elgg/csrf/views_simplecache/1501099611/default/*.js
+sudo sed -i -- 's/http:\/\/www.csrflabelgg.com/$ipaddr\/CSRF\/Elgg/g' /var/elgg/csrf/views_simplecache/1501099611/default/elgg/*.js
+sudo sed -i -- 's/http:\/\/www.csrflabelgg.com/$ipaddr\/CSRF\/Elgg/g' /var/elgg/csrf/views_simplecache/1501099611/default/*.css
 
+sudo chmod -R 777 /var/elgg
+sudo chmod -R 777 /var/www
 
 # set up anaconda
 sudo su seed -c "conda install -c anaconda beautifulsoup4"
