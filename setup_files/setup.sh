@@ -12,9 +12,14 @@ sudo apt -y update
 sudo mkdir /var/setup
 
 #
-# Change permissions for this so all users can run conda commands
+# Get current public IP and make it into a system-wide system variable
 #
-#sudo chmod -R 755 /opt/anaconda3
+sudo su root -c "echo IPADDR=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' -m1) >> /etc/environment"
+
+#
+# Source the new system variable to make sure it is useable
+#
+source /etc/environment
 
 #
 # Create a user named seed with password dees. 
@@ -136,7 +141,7 @@ sudo su seed -c "touch ~/.sudo_as_admin_successful"
 # This uses nohup, and outputs to a file in the /home/seed directory.
 # Not configured for a error file.
 #
-sudo su seed -c "cd ~/ && unset XDG_RUNTIME_DIR && nohup jupyter notebook --NotebookApp.token='' --ip * --no-browser > ~/nohup_jupyter.out &"
+sudo su seed -c "cd ~/ && unset XDG_RUNTIME_DIR && nohup jupyter notebook --NotebookApp.token='' --ip $IPADDR --no-browser > ~/nohup_jupyter.out &"
 
 #
 # Install git and gdb-peda
@@ -167,16 +172,6 @@ cd /var/setup && unzip elgg-2.3.9.zip
 #
 sudo \cp -Rf /var/setup/elgg-2.3.9/* /var/www/CSRF/Elgg/
 sudo \cp -Rf /var/setup/elgg-2.3.9/* /var/www/XSS/Elgg/
-
-#
-# Get current public IP and make it into a system-wide system variable
-#
-sudo su root -c "echo IPADDR=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' -m1) >> /etc/environment"
-
-#
-# Source the new system variable to make sure it is useable
-#
-source /etc/environment
 
 #
 # Create text files that contain the URL of the web pages.
