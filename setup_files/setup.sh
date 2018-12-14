@@ -137,6 +137,11 @@ sudo bash -c "echo 'ANACONDA_HOME=/opt/anaconda3/' >> /etc/environment"
 sudo su seed -c "touch ~/.sudo_as_admin_successful"
 
 #
+# Build the config file for installs with conda
+#
+sudo su seed -c "jupyter notebook --generate-config"
+
+#
 # Start jupyter notebook as seed
 # This uses nohup, and outputs to a file in the /home/seed directory.
 # Not configured for a error file.
