@@ -139,7 +139,7 @@ sudo su seed -c "touch ~/.sudo_as_admin_successful"
 #
 # Build the config file for installs with conda
 #
-sudo su seed -c "jupyter notebook --generate-config"
+sudo su seed -c "unset XDG_RUNTIME_DIR && jupyter notebook --generate-config"
 
 #
 # Start jupyter notebook as seed
