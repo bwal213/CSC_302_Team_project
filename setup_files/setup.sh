@@ -94,7 +94,7 @@ sudo ufw --force enable
 # Legacy path commands are left incase needed in the future.
 #
 wget -O /var/setup/Anaconda3-5.3.0-Linux-x86_64.sh https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh 
-sudo su seed -c 'bash -c "bash /var/setup/Anaconda3-5.3.0-Linux-x86_64.sh -b -p /opt/anaconda3"'
+sudo su seed -c 'bash /var/setup/Anaconda3-5.3.0-Linux-x86_64.sh -b -p /opt/anaconda3'
 #sudo bash -c "echo 'ANACONDA_HOME=/opt/anaconda3/' >> /etc/profile"
 sudo bash -c "echo 'PATH="/opt/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"' > /etc/environment"
 #sudo bash -c "echo 'unset XDG_RUNTIME_DIR' >> /etc/profile"
