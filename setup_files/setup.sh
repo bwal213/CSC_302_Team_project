@@ -247,5 +247,5 @@ sudo apt -y install sl
 # Set up anaconda
 # This might not be needed, but helps so the students don't have to sit around so long at the start of class
 #
-sudo su seed -c "conda install -c anaconda beautifulsoup4"
-sudo su seed -c "conda install -c anaconda requests"
+sudo su seed -c "conda install -c anaconda beautifulsoup4 -y"
+sudo su seed -c "conda install -c anaconda requests -y"
